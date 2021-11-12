@@ -1,5 +1,4 @@
 import time
-
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -41,3 +40,6 @@ for valor in product_card:
         preco_produto = valor.find("div", {"class": "price-tag-normal__LabelPrice-fb5itg-0 iFihUZ"}).contents
     print(preco_produto)
 browser.close()
+
+
+#Arrumar a ocasião de promoção diferente "Sale Box"
