@@ -33,12 +33,19 @@ for event in product_card:
 for valor in product_card:
     aux = valor.find('span', {"class": "buttonstyles__Text-sc-1mux0mx-1 jBMxTB"}).string #pega o valor do botao
     checa_botao = str(aux) #e muda pra string
-
+    try:
+        aux2 = valor.find('div', {"class": "seal-sale-box-divided__Label2-pf7r6x-2 bPAXAk"}).string
+    except AttributeError:
+        aux2 = 1
+    checa_sale = str(aux2)
     if checa_botao == "Indisponível": #checa se botao ta indisponivel
         preco_produto = ['######']
+    elif checa_sale == "A unid. sai por " and checa_botao != "Indisponível":
+        preco_produto = valor.fin("div", {"class": "seal-sale-box-divided__Value-pf7r6x-3 bgtGEw"}).contents
     else:
         preco_produto = valor.find("div", {"class": "price-tag-normal__LabelPrice-fb5itg-0 iFihUZ"}).contents
     print(preco_produto)
+
 browser.close()
 
 
