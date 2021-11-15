@@ -13,7 +13,7 @@ lenOfPage = browser.execute_script("window.scrollTo(0, document.body.scrollHeigh
 match = False
 while match is False:
     lastCount = lenOfPage
-    time.sleep(1)
+    time.sleep(1.5)
     lenOfPage = browser.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
     if lastCount == lenOfPage:
         match = True
