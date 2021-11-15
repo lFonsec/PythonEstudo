@@ -32,13 +32,13 @@ with open(filename, 'w') as csvfile:
     for valor in product_card:
 
         nome_produto = valor.find('a', {"class": "product-cardstyles__Link-sc-1uwpde0-6 kJkixe hyperlinkstyles__Link-j02w35-0 cZAwm"}).contents
-        aux = valor.find('span', {"class": "buttonstyles__Text-sc-1mux0mx-1 jBMxTB"}).string #pega o valor do botao
-        checa_botao = str(aux) #e muda pra string
+        aux = valor.find('span', {"class": "buttonstyles__Text-sc-1mux0mx-1 jBMxTB"}).string  # pega o valor do botao
+        checa_botao = str(aux)  # e muda pra string
         preco_produto = valor.find('div', {"class": "seal-sale-box-divided__Value-pf7r6x-3 bgtGEw"})
 
-        if preco_produto != None:
+        if preco_produto is not None:
             preco_produto = preco_produto.contents
-        elif checa_botao == "Indisponível": #checa se botao ta indisponivel
+        elif checa_botao == "Indisponível":  # checa se botao ta indisponivel
             preco_produto = ['######']
         else:
             preco_produto = valor.find("div", {"class": "price-tag-normal__LabelPrice-fb5itg-0 iFihUZ"}).contents
@@ -46,4 +46,3 @@ with open(filename, 'w') as csvfile:
         writer.writerow({'Nome': nome_produto, 'Preços': preco_produto})
 
 browser.close()
-
