@@ -1,5 +1,6 @@
 import csv
 import time
+import datetime
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -18,11 +19,12 @@ while match is False:
     if lastCount == lenOfPage:
         match = True
 
+data = datetime.datetime.now()
 soup = BeautifulSoup(browser.page_source, 'html.parser')
 product_card = soup.find_all('div', {"class": "product-cardstyles__InnerContainer-sc-1uwpde0-4 ggdQez"})
 nome_produto = []
 preco_produto = []
-filename = 'teste.csv'
+filename = 'Scrapper ' + str(data.day) + '_' + str(data.month) + '.csv'
 
 with open(filename, 'w') as csvfile:
     fieldnames = ['Nome', 'Preços']
