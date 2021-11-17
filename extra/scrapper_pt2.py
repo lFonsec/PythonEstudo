@@ -8,7 +8,6 @@ checaDia = data.day
 checaMes = data.month
 filename = "Scrapper " + str(checaDia) + "_" + str(checaMes) + ".csv"
 df1 = pd.read_csv(filename, encoding='latin-1')
-print(df1)
 
 if checaDia == 1:
     if checaMes == 3:  # Checa se o mes vai ser fev
@@ -39,7 +38,7 @@ df2 = df2.replace(r',', ".", regex=True)
 df2["Precos"] = df2["Precos"].astype(float)
 df1["Precos"] = df1["Precos"].sub(df2["Precos"])
 print(df1)
-
+df1.to_csv(path_or_buf=f"Pandas {data.day}_{data.month}.csv", header="Nome, Precos")
 
 """
 1 Jan = 31 
