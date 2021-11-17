@@ -26,8 +26,8 @@ nome_produto = []
 preco_produto = []
 filename = 'Scrapper ' + str(data.day) + '_' + str(data.month) + '.csv'
 
-with open(filename, 'w') as csvfile:
-    fieldnames = ['Nome', 'Preços']
+with open(filename, 'w', encoding='latin-1') as csvfile:
+    fieldnames = ['Nome', 'Precos']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
 
@@ -41,10 +41,11 @@ with open(filename, 'w') as csvfile:
         if preco_produto is not None:
             preco_produto = preco_produto.contents
         elif checa_botao == "Indisponível":  # checa se botao ta indisponivel
-            preco_produto = ['######']
+            preco_produto = ['R$00,00']
         else:
             preco_produto = valor.find("div", {"class": "price-tag-normal__LabelPrice-fb5itg-0 iFihUZ"}).contents
 
-        writer.writerow({'Nome': nome_produto, 'Preços': preco_produto})
+        writer.writerow({'Nome': nome_produto, 'Precos': preco_produto})
 
 browser.close()
+

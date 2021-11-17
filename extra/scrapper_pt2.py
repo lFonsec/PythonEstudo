@@ -1,6 +1,5 @@
 import datetime
 import re
-
 import pandas as pd
 
 
@@ -27,12 +26,20 @@ else:
 filename2 = "Scrapper " + str(checaDia) + "_" + str(checaMes) + ".csv"
 df2 = pd.read_csv(filename2, encoding='latin-1')
 print("----------------------------------------")
-pat = re.compile(r'\[\]\"\'')
-pd.Series(df1).str.replace(pat, "", regex=True)
+pat = re.compile(r'\[\'R?\$?')
+pat2 = re.compile(r'\'\]')
 
+df1 = df1.replace(pat, "", regex=True)
+df1 = df1.replace(pat2, "", regex=True)
+df1 = df1.replace(r',', ".", regex=True)
+df1["Precos"] = df1["Precos"].astype(float)
+df2 = df2.replace(pat, "", regex=True)
+df2 = df2.replace(pat2, "", regex=True)
+df2 = df2.replace(r',', ".", regex=True)
+df2["Precos"] = df2["Precos"].astype(float)
+df1["Precos"] = df1["Precos"].sub(df2["Precos"])
+print(df1)
 
-# df1['Precos'] = df1['Precos'].astype(int)
-# df3 = df1.sub(df2)
 
 """
 1 Jan = 31 
