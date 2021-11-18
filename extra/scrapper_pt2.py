@@ -24,14 +24,16 @@ else:
 
 filename2 = "Scrapper " + str(checaDia) + "_" + str(checaMes) + ".csv"
 df2 = pd.read_csv(filename2, encoding='latin-1')
-pat = re.compile(r'\[\'R?\$?')
-pat2 = re.compile(r'\'\]')
+pat = re.compile(r'\[\'R?\$?')  # começo
+pat2 = re.compile(r'\'\]')  # fim
+repl = ["", "", "."]
 fieldnames = ['Nome', 'Precos']
-df1 = df1.replace([pat, pat2, r","], ["", "", "."], regex=True)
-df2 = df2.replace([pat, pat2, r","], ["", "", "."], regex=True)
+df1 = df1.replace([pat, pat2, r","], repl, regex=True)
+df2 = df2.replace([pat, pat2, r","], repl, regex=True)
 df1["Precos"] = df1["Precos"].astype(float)
 df2["Precos"] = df2["Precos"].astype(float)
 df1["Precos"] = df1["Precos"].sub(df2["Precos"])
+df1 = df1[df1["Precos"] != 0.0]
 
 df1.to_csv(path_or_buf=f"Pandas {data.day}_{data.month}.csv", header=fieldnames)
 
