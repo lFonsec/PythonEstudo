@@ -32,6 +32,8 @@ df1 = df1.replace([pat, pat2, r","], repl, regex=True)
 df2 = df2.replace([pat, pat2, r","], repl, regex=True)
 df1["Precos"] = df1["Precos"].astype(float)
 df2["Precos"] = df2["Precos"].astype(float)
+df1.sort_values('Nome')
+df2.sort_values('Nome')
 df1["Precos"] = df1["Precos"].sub(df2["Precos"])
 df1 = df1[df1["Precos"] != 0.0]
 
