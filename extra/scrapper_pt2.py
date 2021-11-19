@@ -24,7 +24,7 @@ else:
 
 filename2 = "Scrapper " + str(checaDia) + "_" + str(checaMes) + ".csv"
 df2 = pd.read_csv(filename2, encoding='latin-1')
-pat = re.compile(r'\[?\'R?\$?\]?')  # regex pra selecionar os valores da str a ser trocado
+pat = re.compile(r'^[^a-zA-Z]+|\"*?\[\'R\$|[\'\]\"]')  # regex pra selecionar os valores da str a ser trocado
 repl = ["", "."]
 fieldnames = ['Nome', 'Precos']
 df1 = df1.replace([pat, r","], repl, regex=True)
@@ -34,6 +34,7 @@ df2["Precos"] = df2["Precos"].astype(float)
 df1.sort_values('Nome')
 df2.sort_values('Nome')
 df1["Precos"] = df1["Precos"].sub(df2["Precos"])
+
 df1 = df1[df1["Precos"] != 0.0]
 
 df1.to_csv(path_or_buf=f"Pandas {data.day}_{data.month}.csv", header=fieldnames)
