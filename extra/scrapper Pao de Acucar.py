@@ -11,20 +11,20 @@ url = 'https://www.paodeacucar.com/categoria/bebidas-alcoolicas/cervejas?' \
       'qt=12&ftr=facetSubShelf_ss%3A10360_Cervejas__sellType_s%3A1P&p=35&gt=grid'
 browser.get(url)
 
-SCROLL_PAUSE_TIME = 0.5
+SCROLL_PAUSE_TIME = 0.5 # tempo de espera para a pagina carregar
 
-# Get scroll height
-last_height = browser.execute_script("return document.body.scrollHeight")
+
+last_height = browser.execute_script("return document.body.scrollHeight") # pega a altura da pagina
 
 while True:
-    # Scroll down to bottom
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    
+    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);") # scroll para baixo
 
-    # Wait to load page
-    time.sleep(SCROLL_PAUSE_TIME)
+    
+    time.sleep(SCROLL_PAUSE_TIME) # espera a pagina carregar
 
-    # Calculate new scroll height and compare with last scroll height
-    new_height = browser.execute_script("return document.body.scrollHeight")
+    
+    new_height = browser.execute_script("return document.body.scrollHeight") # pega o novo tamanho da pagina e compara com o antigo
     if new_height == last_height:
         break
     last_height = new_height
