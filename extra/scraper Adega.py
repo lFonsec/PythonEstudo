@@ -10,20 +10,21 @@ browser = webdriver.Chrome(service=s)
 url = 'https://www.paodeacucar.com/adega/secoes/6511/Cervejas'
 browser.get(url)
 
-SCROLL_PAUSE_TIME = 1.5
 
-# Get scroll height
-last_height = browser.execute_script("return document.body.scrollHeight")
+SCROLL_PAUSE_TIME = 0.5 # tempo de espera para a pagina carregar
+
+
+last_height = browser.execute_script("return document.body.scrollHeight") # pega a altura da pagina
 
 while True:
-    # Scroll down to bottom
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    
+    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);") # scroll para baixo
 
-    # Wait to load page
-    time.sleep(SCROLL_PAUSE_TIME)
+    
+    time.sleep(SCROLL_PAUSE_TIME) # espera a pagina carregar
 
-    # Calculate new scroll height and compare with last scroll height
-    new_height = browser.execute_script("return document.body.scrollHeight")
+    
+    new_height = browser.execute_script("return document.body.scrollHeight") # pega o novo tamanho da pagina e compara com o antigo
     if new_height == last_height:
         break
     last_height = new_height
