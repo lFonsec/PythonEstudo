@@ -10,24 +10,21 @@ browser = webdriver.Chrome(service=s)
 url = 'https://www.paodeacucar.com/adega/secoes/6511/Cervejas'
 browser.get(url)
 
-SCROLL_PAUSE_TIME = 1.5
+SCROLL_PAUSE_TIME = 0.5  # tempo de espera para a pagina carregar
 
-# Get scroll height
-last_height = browser.execute_script("return document.body.scrollHeight")
+last_height = browser.execute_script("return document.body.scrollHeight")  # pega a altura da pagina
 
 while True:
-    # Scroll down to bottom
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-    # Wait to load page
-    time.sleep(SCROLL_PAUSE_TIME)
+    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")  # scroll para baixo
 
-    # Calculate new scroll height and compare with last scroll height
-    new_height = browser.execute_script("return document.body.scrollHeight")
+    time.sleep(SCROLL_PAUSE_TIME)  # espera a pagina carregar
+
+    new_height = browser.execute_script(
+        "return document.body.scrollHeight")  # pega o novo tamanho da pagina e compara com o antigo
     if new_height == last_height:
         break
     last_height = new_height
-
 
 data = datetime.datetime.now()
 soup = BeautifulSoup(browser.page_source, 'html.parser')
@@ -36,7 +33,7 @@ nome_produto = []
 preco_produto = []
 filename = 'Scrapper ' + str(data.day) + '_' + str(data.month) + '.csv'
 
-with open(filename, 'w', encoding='latin-1') as csvfile:
+with open(filename, 'w', encoding='windows-1252') as csvfile:
     fieldnames = ['Nome', 'Precos']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
