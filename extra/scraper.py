@@ -5,9 +5,14 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
-s = Service('C:/Users/lucas/Documents/Udemy Python/chromedriver.exe')
-browser = webdriver.Chrome(service=s)
-url = 'https://www.paodeacucar.com/adega/secoes/6511/Cervejas?default_filters=%7B%22isRoot%22%3Atrue%2C%22filterId%22%3A%22categoria%22%2C%22filterValue%22%3A%22cervejas%22%7D%3B&sort=price%252Brev'
+chromedriver_path = 'C:/Users/lucas/Documents/Python/Webdriver/chromedriver.exe'
+brave_path = 'C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe'
+s = Service(chromedriver_path)
+option = webdriver.ChromeOptions()
+option.binary_location = brave_path
+browser = webdriver.Chrome(service=s, options=option)
+url = 'https://www.paodeacucar.com/adega/secoes/6511/Cervejas?default_filters=%7B%22isRoot%22%3Atrue%2C%22filterId%22%3A%22categoria' \
+      '%22%2C%22filterValue%22%3A%22cervejas%22%7D%3B&sort=price%252Brev'
 browser.get(url)
 
 lenOfPage = browser.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")

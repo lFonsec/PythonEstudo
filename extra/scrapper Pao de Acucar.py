@@ -5,8 +5,13 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
-s = Service('C:/Users/lucas/Documents/Udemy Python/chromedriver.exe')
-browser = webdriver.Chrome(service=s)
+chromedriver_path = 'C:/Users/lucas/Documents/Python/Webdriver/chromedriver.exe'
+brave_path = 'C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe'
+s = Service(chromedriver_path)
+option = webdriver.ChromeOptions()
+option.binary_location = brave_path
+browser = webdriver.Chrome(service=s, options=option)
+
 url = 'https://www.paodeacucar.com/categoria/bebidas-alcoolicas/cervejas?' \
       'qt=12&ftr=facetSubShelf_ss%3A10360_Cervejas__sellType_s%3A1P&p=35&gt=grid'
 browser.get(url)
