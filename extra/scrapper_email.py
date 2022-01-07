@@ -2,7 +2,6 @@ import smtplib
 import ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import getpass
 import datetime
 import pandas as pd
 
@@ -11,14 +10,15 @@ checaDia = data.day
 checaMes = data.month
 diaMes = str(checaDia) + "_" + str(checaMes) + ".csv"
 filename = "Scrapper Pao de Ac " + diaMes
-df1 = pd.read_csv(filename, encoding='windows-1252')
+df1 = pd.read_csv(filename, encoding='latin-1')
 df1 = df1.to_html()
 filename = "Scrapper " + diaMes
-df2 = pd.read_csv(filename, encoding='windows-1252')
+df2 = pd.read_csv(filename, encoding='latin-1')
 df2 = df2.to_html()
-sender_email = "xxxyyy@zzz.com"  # Email de quem vai enviar
-password = '123456789'  # senha do email de quem vai enviar
-receiver_email = "zzzz.xxxx@gyyyy.com"  # email de quem vai receber
+
+sender_email = "Scrapper.pda@gmail.com"  # Email de quem vai enviar
+receiver_email = "lucasfowcosta@gmail.com"  # email de quem vai receber
+password = input("Qual a senha do email de quem vai enviar: ")  # senha do email de quem vai enviar
 
 
 message = MIMEMultipart("alternative")

@@ -40,7 +40,7 @@ nome_produto = []
 preco_produto = []
 filename = 'Scrapper Pao de Ac ' + str(data.day) + '_' + str(data.month) + '.csv'
 
-with open(filename, 'w', encoding='windows-1252') as csvfile:
+with open(filename, 'w', encoding='latin-1') as csvfile:
     fieldnames = ['Nome', 'Precos']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()

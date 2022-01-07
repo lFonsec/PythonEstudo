@@ -6,8 +6,9 @@ import pandas as pd
 data = datetime.datetime.now()
 checaDia = data.day
 checaMes = data.month
-filename = "Scrapper " + str(checaDia) + "_" + str(checaMes) + ".csv"
-df1 = pd.read_csv(filename, encoding='windows-1252')
+diaMes = str(checaDia) + "_" + str(checaMes) + ".csv"
+filename = "Scrapper " + diaMes
+df1 = pd.read_csv(filename, encoding='latin-1')
 
 if checaDia == 1:
     if checaMes == 3:  # Checa se o mes vai ser fev
@@ -22,8 +23,8 @@ if checaDia == 1:
 else:
     checaDia = checaDia - 1
 
-filename2 = "Scrapper " + str(checaDia) + "_" + str(checaMes) + ".csv"
-df2 = pd.read_csv(filename2, encoding='windows-1252')
+filename2 = "Scrapper " + diaMes
+df2 = pd.read_csv(filename2, encoding='latin-1')
 pat = re.compile(r'^[^a-zA-Z]+|[\"*?\[\'R$]|[\'\]\"]')  # regex pra selecionar os valores da str a ser trocado
 repl = ["", "."]
 fieldnames = ['Nome', 'Precos']

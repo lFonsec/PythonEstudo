@@ -24,8 +24,8 @@ while True:
 
     time.sleep(SCROLL_PAUSE_TIME)  # espera a pagina carregar
 
-    new_height = browser.execute_script(
-        "return document.body.scrollHeight")  # pega o novo tamanho da pagina e compara com o antigo
+    new_height = browser.execute_script("return document.body.scrollHeight")  # pega o novo tamanho da pagina e compara com o antigo
+
     if new_height == last_height:
         break
     last_height = new_height
@@ -37,7 +37,7 @@ nome_produto = []
 preco_produto = []
 filename = 'Scrapper ' + str(data.day) + '_' + str(data.month) + '.csv'
 
-with open(filename, 'w', encoding='windows-1252') as csvfile:
+with open(filename, 'w', encoding='latin-1') as csvfile:
     fieldnames = ['Nome', 'Precos']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
