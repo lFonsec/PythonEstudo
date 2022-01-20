@@ -81,3 +81,62 @@ segundos = int(input("digite os segundos: "))
 
 converte_segundos(horas, minutos, segundos)
 """
+
+#   7)
+"""
+
+
+def farenheit(celsius):
+    return celsius * (9.0/5.0) + 32.0
+
+
+print(farenheit(float(input("digite a temperatura: "))))
+
+"""
+
+#   8)
+
+"""
+def hipotenusa(cata, catb):
+    return math.sqrt(pow(cata, 2) + pow(catb, 2))
+
+
+cata = int(input("digite o cateto a:"))
+catb = int(input("digite o cateto b:"))
+print(hipotenusa(cata, catb))
+"""
+
+#   9)
+
+"""
+def qual_maior(a, b):
+    if a > b:
+        return f"o valor a({a}) é maior"
+    elif a < b:
+        return f"o valor b({b}) é maior"
+    else:
+        return "Sao do mesmo tamanho"
+
+
+numa = int(input("digite o valor a:"))
+numb = int(input("digite o valor b:"))
+print(qual_maior(numa, numb))
+"""
+
+#  10)
+
+
+def notas(a, b, c, metodo):
+    if metodo == "A" or "a":
+        return (a+b+c)/3
+    elif metodo == "P" or "p":
+        return ((a*5) + (b*3) + (c*2))/10
+    else:
+        return "Metodo errado"
+
+
+nota1 = int(input("digite a nota 1: "))
+nota2 = int(input("digite a nota 2: "))
+nota3 = int(input("digite a nota 3: "))
+met = input("digite o metodo A = aritimetica e P = ponderada: ")
+print(notas(nota1, nota2, nota3, met))
