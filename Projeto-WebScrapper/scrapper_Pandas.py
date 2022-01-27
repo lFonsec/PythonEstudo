@@ -46,6 +46,7 @@ df1 = df1[df1["Precos"] != 0.0]
 
 df1.to_csv(path_or_buf=f"Pandas {data.day}_{data.month}.csv", header=fieldnames)
 
+
 """
 1 Jan = 31 
 2 Fev = 28
