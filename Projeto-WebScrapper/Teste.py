@@ -29,5 +29,5 @@ df2["Precos"] = round(df2["Precos"].astype(float), 2)
 df1 = df1[df1["Nome"].str.contains(check)]
 df2 = df2[df2["Nome"].str.contains(check)]
 
-df1.to_csv(path_or_buf=f"ADG_DTB {data.day}_{data.month}.csv", header=fieldnames)
-df2.to_csv(path_or_buf=f"PDA_DTB {data.day}_{data.month}.csv", header=fieldnames)
+df1.to_csv(path_or_buf=f"ADG_DTB {data.day}_{data.month}.csv", header=fieldnames, index=False)
+df2.to_csv(path_or_buf=f"PDA_DTB {data.day}_{data.month}.csv", header=fieldnames, index=False)
