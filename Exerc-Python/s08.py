@@ -145,5 +145,12 @@ print(notas(nota1, nota2, nota3, met))
 
 
 # 11)
+"""
+def funcao(n):
+    for x in range(n):
+        c = (pow(n, 2)+1)/(n+3)
+    return c
 
 
+print(funcao(int(input("digite o valor: "))))
+"""
