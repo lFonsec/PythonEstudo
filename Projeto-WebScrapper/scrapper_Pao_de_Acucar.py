@@ -58,6 +58,6 @@ with open(filename, 'w', encoding='latin-1') as csvfile:
             preco_produto = valor.find("div", {"class": "price-tag-normalstyle__LabelPrice-sc-1co9fex-0 lkWvql"}).contents
 
         writer.writerow({'Nome': nome_produto, 'Precos': preco_produto})
-
+time.sleep(2)
 browser.close()
 
