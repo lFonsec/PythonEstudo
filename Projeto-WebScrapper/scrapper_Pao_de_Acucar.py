@@ -16,6 +16,8 @@ url = 'https://www.paodeacucar.com/categoria/bebidas-alcoolicas/cervejas?' \
       'qt=12&ftr=facetSubShelf_ss%3A10360_Cervejas__sellType_s%3A1P&p=35&gt=grid'
 browser.get(url)
 
+time.sleep(1.25)
+
 SCROLL_PAUSE_TIME = 0.5  # tempo de espera para a pagina carregar
 
 last_height = browser.execute_script("return document.body.scrollHeight")  # pega a altura da pagina
@@ -48,16 +50,17 @@ with open(filename, 'w', encoding='latin-1') as csvfile:
     for valor in product_card:
 
         nome_produto = valor.find('a', {"class": "product-cardstyles__Link-sc-1uwpde0-9 bSQmwP hyperlinkstyles__Link-j02w35-0 hcByGl"}).contents
-        # aux = valor.find('span', {"class": "buttonstyles__Text-sc-1mux0mx-2 iHGqzy"})  # pega o valor do botao
         aux2 = valor.find('span', {"class": "buttonstyles__Text-sc-1mux0mx-2 iHGqzy"})
-        # checa_botao = str(aux)  # e muda pra string
+        preco_produto = valor.find('div', {"class": "seal-sale-box-divided__Value-pf7r6x-3 bgtGEw"})
 
-        if aux2 is None:  # checa se botao ta indisponivel
+        if preco_produto is not None:
+            preco_produto = preco_produto.contents
+        elif aux2 is None:  # checa se botao ta indisponivel
             preco_produto = ['R$00,00']
         else:
             preco_produto = valor.find("div", {"class": "price-tag-normalstyle__LabelPrice-sc-1co9fex-0 lkWvql"}).contents
 
         writer.writerow({'Nome': nome_produto, 'Precos': preco_produto})
-time.sleep(2)
+time.sleep(1.25)
 browser.close()
 
