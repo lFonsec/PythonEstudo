@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Projeto-WebScrapper\ADG_DTB 3_2.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\Projeto-WebScrapper\PDA_DTB 27_1.csv">
           <value>
             <Attribute>
@@ -31,6 +38,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Projeto-WebScrapper\PDA_DTB 3_2.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\Projeto-WebScrapper\Pandas 17_11.csv">
           <value>
             <Attribute>
@@ -38,21 +52,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\Projeto-WebScrapper\Pandas 6_1.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Projeto-WebScrapper\Scrapper 27_1.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Projeto-WebScrapper\Scrapper Pao de Ac 27_1.csv">
+        <entry key="\Projeto-WebScrapper\Scrapper 28_1.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -60,6 +60,20 @@
           </value>
         </entry>
         <entry key="\Projeto-WebScrapper\Scrapper Pao de Ac 28_1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Projeto-WebScrapper\Scrapper Pao de Ac 30_12.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Projeto-WebScrapper\Scrapper Pao de Ac 3_2.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
