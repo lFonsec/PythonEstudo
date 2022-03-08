@@ -65,6 +65,7 @@ except:
     print('Deu um erro diferente')
 """
 
+
 def pega_valor(dicionario, chave):
     try:
         return dicionario[chave]
